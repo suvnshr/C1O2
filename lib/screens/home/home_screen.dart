@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../calculator/user_inputs.dart';
+
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -7,11 +9,12 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Home"),
       ),
-      body: Container(
-        child: Center(
-          child: Text("Hello World !!!"),
-        ),
-      ),
+      body: UserInputs(),
+      // Container(
+      //   child: Center(
+      //     child: Text("Hello World !!!"),
+      //   ),
+      // ),
     );
   }
 }
