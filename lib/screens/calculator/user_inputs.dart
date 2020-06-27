@@ -13,7 +13,7 @@ class UserInputs extends StatelessWidget {
               left: 10,
               child: Container(
                 height: size.height * 0.7,
-                width: size.width * 0.8,
+                width: size.width * 0.9,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.amber),
@@ -30,7 +30,7 @@ class UserInputs extends StatelessWidget {
                     ),
                     Align(
                       child: Container(
-                        width: size.width * 0.3,
+                        width: size.width * 0.15,
                         child: TextFormField(
                           decoration: InputDecoration(
                             labelText: 'Answer',
@@ -58,10 +58,10 @@ class UserInputs extends StatelessWidget {
             ),
             Positioned(
               top: 70,
-              left: 30,
+              left: 20,
               child: Container(
                 height: size.height * 0.7,
-                width: size.width * 0.8,
+                width: size.width * 0.9,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.indigo),
@@ -78,7 +78,7 @@ class UserInputs extends StatelessWidget {
                     ),
                     Align(
                       child: Container(
-                        width: size.width * 0.3,
+                        width: size.width * 0.15,
                         child: TextFormField(
                           decoration: InputDecoration(
                             labelText: 'Answer',
@@ -105,10 +105,10 @@ class UserInputs extends StatelessWidget {
             ),
             Positioned(
               top: 90,
-              left: 50,
+              left: 30,
               child: Container(
                 height: size.height * 0.7,
-                width: size.width * 0.8,
+                width: size.width * 0.9,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.redAccent),
@@ -125,7 +125,7 @@ class UserInputs extends StatelessWidget {
                     ),
                     Align(
                       child: Container(
-                        width: size.width * 0.3,
+                        width: size.width * 0.15,
                         child: TextFormField(
                           decoration: InputDecoration(
                             labelText: 'Answer',
