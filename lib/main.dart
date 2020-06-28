@@ -27,13 +27,14 @@ class MyApp extends StatelessWidget {
           // closer together (more dense) than on mobile platforms.
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: ResultScreen(
-                activityName: "Household",
-                userEmission: 70,
-                averageEmission: 50,
-              ),//HomeScreen.routeName,
+        initialRoute: HomeScreen.routeName,
+        // home: ResultScreen(
+        //         activityName: "Household",
+        //         userEmission: 70,
+        //         averageEmission: 50,
+        //       ),//HomeScreen.routeName,
         routes: {
-          //HomeScreen.routeName: (context) => HomeScreen(),
+          HomeScreen.routeName: (context) => HomeScreen(),
           UserInputs.routeName: (context) => UserInputs(),
           ResultScreen.routeName: (context) => ResultScreen(
                 activityName: "Household",
