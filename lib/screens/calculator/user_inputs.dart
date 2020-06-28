@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
+import './user_input_questions.dart';
+
 class UserInputs extends StatelessWidget {
+  List questions = [];
+  Map<String, String> answers = {
+    'Question1': '',
+  };
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -9,116 +16,19 @@ class UserInputs extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              top: 50,
-              left: 10,
               child: Container(
-                height: size.height * 0.7,
-                width: size.width * 0.9,
+                height: size.height,
+                width: size.width,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.amber),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Align(
-                      child: Text('Question'),
-                    ),
-                    SizedBox(
-                      height: 50,
-                    ),
-                    Align(
-                      child: Container(
-                        width: size.width * 0.15,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            labelText: 'Answer',
-                            // border: OutlineInputBorder(
-                            //   sborderRadius: BorderRadius.circular(30),
-                            // ),
-                          ),
-                          keyboardType: TextInputType.text,
-                          style:
-                              TextStyle(color: Theme.of(context).primaryColor),
-                          // validator: (value) {
-                          //   if (value.isEmpty) {
-                          //     return 'Invalid username!';
-                          //   }
-                          // },
-                          // onSaved: (value) {
-                          //   _authData['username'] = value;
-                          // },
-                        ),
-                      ),
-                    ),
-                    Align(
-                      child: FlatButton(
-                        onPressed: () {},
-                        child: Text('Next'),
-                      ),
-                    ),
-                  ],
+                  borderRadius: BorderRadius.circular(10),
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    colors: [
+                      Colors.red.shade800,
+                      Colors.redAccent.shade400,
+                    ],
+                  ),
                 ),
-              ),
-            ),
-            Positioned(
-              top: 70,
-              left: 20,
-              child: Container(
-                height: size.height * 0.7,
-                width: size.width * 0.9,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.indigo),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Align(
-                      child: Text('Question'),
-                    ),
-                    SizedBox(
-                      height: 50,
-                    ),
-                    Align(
-                      child: Container(
-                        width: size.width * 0.15,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            labelText: 'Answer',
-                            // border: OutlineInputBorder(
-                            //   borderRadius: BorderRadius.circular(30),
-                            // ),
-                          ),
-                          keyboardType: TextInputType.text,
-                          style:
-                              TextStyle(color: Theme.of(context).primaryColor),
-                          // validator: (value) {
-                          //   if (value.isEmpty) {
-                          //     return 'Invalid username!';
-                          //   }
-                          // },
-                          // onSaved: (value) {
-                          //   _authData['username'] = value;
-                          // },
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Positioned(
-              top: 90,
-              left: 30,
-              child: Container(
-                height: size.height * 0.7,
-                width: size.width * 0.9,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.redAccent),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
