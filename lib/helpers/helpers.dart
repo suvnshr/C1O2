@@ -39,6 +39,12 @@ class CarbonFootPrdouble {
   // Fruits & vegetables (calories)
   static final double emissionPerUnitCalorieOfFruit = 0;
 
+  // Average
+  // DUMMY DATA, FOR EXPERIMENT
+  static final double avgEmissionDueToHouseHoldPerDay = 50;
+  static final double avgEmissionDueToFoodPerDay = 50;
+  static final double avgEmissionDueToTravelPerDay = 50;
+
 
   // Get the daily carbon footprint of your household activities
   double getDailyHouseHoldCarbonFootPrdouble(
@@ -56,7 +62,7 @@ class CarbonFootPrdouble {
         emissionPerUnitElectricity * electrictyComsunptioninKWH;
     double emissionDueToWater = emissionPerUnitWater * litresOfWaterUsed;
 
-    return emissionDueToElectricity + emissionDueToWater;
+    return (emissionDueToElectricity + emissionDueToWater) / 1000;
   }
 
   // Get the daily footprint of your travel related activities
@@ -64,7 +70,7 @@ class CarbonFootPrdouble {
       double distanceTravelledByCar, double distanceTravelledByBicycle) {
     return (emissionPerKmBike * distanceTravelledByBike +
         emissionPerKmCar * distanceTravelledByCar +
-        emissionPerKmBicycle * distanceTravelledByBicycle);
+        emissionPerKmBicycle * distanceTravelledByBicycle) / 1000;
   }
 
   // Get the daily footprint of your food related activities
@@ -77,7 +83,7 @@ class CarbonFootPrdouble {
     return (meatCalorieIntake * emissionPerUnitCalorieOfMeat +
         grainCalorieIntake * emissionPerUnitCalorieOfGrain +
         dairyCalorieIntake * emissionPerUnitCalorieOfDairy +
-        fruitCalorieIntake * emissionPerUnitCalorieOfFruit);
+        fruitCalorieIntake * emissionPerUnitCalorieOfFruit) / 1000;
   }
 
   // Get total carbon footprint according to daily activities
