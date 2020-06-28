@@ -14,10 +14,10 @@ class CarbonFootPrdouble {
   static final double kwhUsedByFridgePerHour = 0.25;
 
   // Electricity(kWh)
-  static final double emissionPerUnitElectricity = 1;
+  static final double emissionPerUnitElectricity = 0.475;
 
   // Water(L)
-  static final double emissionPerUnitWater = 0;
+  static final double emissionPerUnitWater = 0.001;
 
   // Petrol(L)
   static final double emissionPerKmCar = 0.313;
@@ -47,7 +47,7 @@ class CarbonFootPrdouble {
     double hoursFridgeUsed,
     double litresOfWaterUsed,
   ) {
-    
+
     double electrictyComsunptioninKWH = (hoursFanUsed * kwhUsedByFanPerHour +
         hoursTVUsed * kwhUsedByTVPerHour +
         hoursFridgeUsed * kwhUsedByFridgePerHour);
