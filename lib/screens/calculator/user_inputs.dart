@@ -5,22 +5,12 @@ import 'package:provider/provider.dart';
 import './user_input_questions.dart';
 import '../../helpers/colors.dart';
 
-class UserInputs extends StatefulWidget {
-  static const routteNAme = '/user-inputs';
-  @override
-  _UserInputsState createState() => _UserInputsState();
-}
-
-class _UserInputsState extends State<UserInputs> {
-  // Map<String, String> answers = {
-  //   'Question0': '',
-  //   'Question1': '',
-  //   'Question2': '',
-  //   'Question3': '',
-  // };
-  List answers = [];
-
-  var index = 0;
+class UserInputs extends StatelessWidget {
+  List questions = [];
+  Map<String, String> answers = {
+    'Question1': '',
+  };
+  static const String routeName = 'userInput';
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +47,7 @@ class _UserInputsState extends State<UserInputs> {
                   children: [
                     Align(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal:40.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 40.0),
                         child: Text(
                           foodQ[index],
                           textAlign: TextAlign.center,
@@ -75,7 +65,7 @@ class _UserInputsState extends State<UserInputs> {
                       child: Container(
                         width: size.width * 0.4,
                         child: TextFormField(
-                          onChanged: (value){
+                          onChanged: (value) {
                             answers.add(value);
                           },
                           decoration: InputDecoration(
@@ -89,12 +79,13 @@ class _UserInputsState extends State<UserInputs> {
                               ),
                               onPressed: () {
                                 setState(() {
-                                  if(index <= questions.length){
+                                  if (index <= questions.length) {
                                     index += 1;
                                   }
                                 });
-                                if(index > foodQ.length){
-                                  Navigator.of(context).pushNamed('', arguments: answers);
+                                if (index > foodQ.length) {
+                                  Navigator.of(context)
+                                      .pushNamed('', arguments: answers);
                                 }
                                 print(answers);
                               },

@@ -7,7 +7,6 @@ import './screens/home/home_screen.dart';
 import './screens/calculator/user_inputs.dart';
 import './screens/calculator/user_input_questions.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -17,9 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider.value(value: Questions())
-      ],
+      providers: [ChangeNotifierProvider.value(value: Questions())],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'C1O2',
@@ -30,7 +27,11 @@ class MyApp extends StatelessWidget {
           // closer together (more dense) than on mobile platforms.
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: UserInputs(),
+        initialRoute: HomeScreen.routeName,
+        routes: {
+          HomeScreen.routeName: (context) => HomeScreen(),
+          UserInputs.routeName: (context) => UserInputs(),
+        },
         // ResultScreen(
         //   activityName: "Household",
         //   userEmission: 70,
