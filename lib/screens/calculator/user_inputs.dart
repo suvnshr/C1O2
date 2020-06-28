@@ -89,7 +89,7 @@ class _UserInputsState extends State<UserInputs> {
                                   return;
                                 }
                                 answers.add(_answerController.text);
-                                if (index == questions.length) {
+                                if (index == questions.length -1) {
                                   Navigator.of(context).pushNamed(
                                     ResultScreen.routeName,
                                     arguments: answers,
