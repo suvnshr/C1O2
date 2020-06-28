@@ -6,7 +6,7 @@ import './user_input_questions.dart';
 import '../../helpers/colors.dart';
 
 class UserInputs extends StatefulWidget {
-  static const routteNAme = '/user-inputs';
+  static const routeName = '/user-inputs';
   @override
   _UserInputsState createState() => _UserInputsState();
 }
@@ -26,7 +26,7 @@ class _UserInputsState extends State<UserInputs> {
 
   @override
   Widget build(BuildContext context) {
-    var args = ModalRoute.of(context).settings.arguments;
+    var args = ModalRoute.of(context).settings.arguments as String;
     final size = MediaQuery.of(context).size;
 
     List foodQ = Provider.of<Questions>(context).foodQuestions;
@@ -34,6 +34,8 @@ class _UserInputsState extends State<UserInputs> {
     List waterQ = Provider.of<Questions>(context).waterQuestions;
 
     List questions = [];
+
+    print(args);
 
     if (args == 'food') {
       questions = foodQ;
@@ -61,7 +63,7 @@ class _UserInputsState extends State<UserInputs> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 40.0),
                         child: Text(
-                          foodQ[index],
+                          questions[index],
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: ColorPallete.color7,
@@ -91,10 +93,14 @@ class _UserInputsState extends State<UserInputs> {
                                 color: ColorPallete.color4,
                               ),
                               onPressed: () {
+                                if (_answerController.text == '' ||
+                                    _answerController is String) {
+                                  return;
+                                }
                                 answers.add(_answerController.text);
-                                if (index < foodQ.length) {
+                                if (index < questions.length) {
                                   index += 1;
-                                } else if (index == foodQ.length) {
+                                } else if (index == questions.length) {
                                   Navigator.of(context)
                                       .pushNamed('', arguments: answers);
                                 }

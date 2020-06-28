@@ -1,88 +1,112 @@
+import 'package:C1O2/helpers/colors.dart';
+import 'package:C1O2/screens/calculator/user_inputs.dart';
 import 'package:flutter/material.dart';
 
-import '../calculator/user_inputs.dart';
-
 class HomeScreen extends StatelessWidget {
+  static const String routeName = '/';
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Container(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                'Hey there',
+    return Scaffold(
+      backgroundColor: ColorPallete.background,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 300,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Aayush Bisen',
+                style: TextStyle(
+                  color: ColorPallete.color4,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 40,
+                ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                'You can make a difference',
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              CalculateCard(
-                name: 'Food',
-              ),
-              CalculateCard(
-                name: 'Electricity',
-              ),
-              CalculateCard(
-                name: 'Vehicles',
-              ),
-            ],
-          ),
+            ),
+            GestureDetector(
+              child: CustomCard(),
+              onTap: () {
+                print('Hello');
+                Navigator.pushNamed(
+                  context,
+                  UserInputs.routeName,
+                  arguments: 'travel',
+                );
+              },
+            ),
+            SizedBox(height: 16),
+            CustomCard(),
+            SizedBox(height: 16),
+            CustomCard(),
+            SizedBox(height: 16),
+          ],
         ),
       ),
     );
   }
 }
 
-class CalculateCard extends StatelessWidget {
-  final String name;
-  final Image image;
-
-  const CalculateCard({Key key, this.name, this.image}) : super(key: key);
+class CustomCard extends StatelessWidget {
+  const CustomCard({
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(10),
-          bottomRight: Radius.circular(10),
-        ),
+    return Container(
+      height: 150,
+      margin: EdgeInsets.symmetric(
+        horizontal: 10.0,
       ),
-
-      //body: UserInputs(),
-      // Container(
-      //   child: Center(
-      //     child: Text("Hello World !!!"),
-      //   ),
-      // ),
-
-      child: InkWell(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(10),
-          bottomRight: Radius.circular(10),
-        ),
-        onTap: () {
-          print('Navigating to $name');
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('$name'),
-              Text('Calculate your footprint'),
-            ],
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20.0),
+        color: ColorPallete.cardBackground,
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+              'assets/images/Electriccar2.gif',
+              height: 150,
+            ),
           ),
-        ),
+          SizedBox(
+            width: 8,
+          ),
+          Flexible(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                  child: Text(
+                    'Vehicles',
+                    style: TextStyle(
+                        color: ColorPallete.cardHeading,
+                        fontSize: 32,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    'Calculate your carbon footprint.',
+                    style: TextStyle(
+                      color: ColorPallete.cardHeading,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
