@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_xlider/flutter_xlider.dart';
 
 class ResultScreen extends StatelessWidget {
+  
   final double userEmission;
   final double averageEmission;
   final String activityName;
+
+  static final routeName = "/result";
 
   Text toolTipLabel = Text(
     " tonnes CO2",

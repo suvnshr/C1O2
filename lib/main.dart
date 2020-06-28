@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
-import './result/result_screen.dart';
+import './screens/result/result_screen.dart';
 import './screens/home/home_screen.dart';
 import './screens/calculator/user_inputs.dart';
 import './screens/calculator/user_input_questions.dart';
@@ -31,12 +31,12 @@ class MyApp extends StatelessWidget {
         routes: {
           HomeScreen.routeName: (context) => HomeScreen(),
           UserInputs.routeName: (context) => UserInputs(),
+          ResultScreen.routeName: (context) => ResultScreen(
+                activityName: "Household",
+                userEmission: 70,
+                averageEmission: 50,
+              ),
         },
-        // ResultScreen(
-        //   activityName: "Household",
-        //   userEmission: 70,
-        //   averageEmission: 50,
-        // ),
       ),
     );
   }
