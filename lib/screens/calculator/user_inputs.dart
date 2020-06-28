@@ -1,17 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:provider/provider.dart';
 
 import './user_input_questions.dart';
 import '../../helpers/colors.dart';
 
-class UserInputs extends StatelessWidget {
-  List questions = [];
-  Map<String, String> answers = {
-    'Question1': '',
-  };
+class UserInputs extends StatefulWidget {
+  static const routteNAme = '/user-inputs';
+  @override
+  _UserInputsState createState() => _UserInputsState();
+}
+
+class _UserInputsState extends State<UserInputs> {
+  // Map<String, String> answers = {
+  //   'Question0': '',
+  //   'Question1': '',
+  //   'Question2': '',
+  //   'Question3': '',
+  // };
+  List answers = [];
+
+  var index = 0;
 
   @override
   Widget build(BuildContext context) {
+    var args = ModalRoute.of(context).settings.arguments;
     final size = MediaQuery.of(context).size;
+
+    List foodQ = Provider.of<Questions>(context).foodQuestions;
+    List travelQ = Provider.of<Questions>(context).travelQuestions;
+    List waterQ = Provider.of<Questions>(context).waterQuestions;
+
+    List questions = [];
+
+    if (args == 'food') {
+      questions = foodQ;
+    } else if (args == 'travel') {
+      questions = travelQ;
+    } else {
+      questions = waterQ;
+    }
+
     return Scaffold(
       body: Container(
         child: Stack(
@@ -27,11 +56,15 @@ class UserInputs extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Align(
-                      child: Text(
-                        'Question',
-                        style: TextStyle(
-                          color: ColorPallete.color7,
-                          fontSize: 22,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal:40.0),
+                        child: Text(
+                          foodQ[index],
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: ColorPallete.color7,
+                            fontSize: 20,
+                          ),
                         ),
                       ),
                     ),
@@ -42,6 +75,9 @@ class UserInputs extends StatelessWidget {
                       child: Container(
                         width: size.width * 0.4,
                         child: TextFormField(
+                          onChanged: (value){
+                            answers.add(value);
+                          },
                           decoration: InputDecoration(
                             enabledBorder: InputBorder.none,
                             filled: true,
@@ -51,7 +87,17 @@ class UserInputs extends StatelessWidget {
                                 Icons.trending_flat,
                                 color: ColorPallete.color4,
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  if(index <= questions.length){
+                                    index += 1;
+                                  }
+                                });
+                                if(index > foodQ.length){
+                                  Navigator.of(context).pushNamed('', arguments: answers);
+                                }
+                                print(answers);
+                              },
                             ),
                             //hintText: 'Answer',
                             // labelText: 'Answer',

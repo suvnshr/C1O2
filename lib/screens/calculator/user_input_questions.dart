@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Questions with ChangeNotifier {
   List _foodQuestions = [
-    "How much Meat, Fish and Eggs do you consume?"
+    "How much Meat, Fish and Eggs do you consume?",
     'How much Grains and Baked Goods do you consume?',
     'How much Dairy Products do you consume?',
     'How much Fruits and Vegetables do you consume?',
