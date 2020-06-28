@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_xlider/flutter_xlider.dart';
 
 class ResultScreen extends StatelessWidget {
-  
   final double userEmission;
   final double averageEmission;
   final String activityName;
@@ -163,136 +162,137 @@ class ResultScreen extends StatelessWidget {
           title: Text(
             "$activityName carbon footprint",
             style: TextStyle(
-              fontWeight: FontWeight.w300,
-              fontSize: 16,
-              color: ColorPallete.color7
-            ),
+                fontWeight: FontWeight.w300,
+                fontSize: 16,
+                color: ColorPallete.color7),
           ),
         ),
         backgroundColor: ColorPallete.background,
-        body: Container(
-          child: Column(
-            children: [
-              Container(
-                color: ColorPallete.cardBackground,
-                child: SizedBox(
-                  child: Container(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CoolText(
-                          "$userEmission tonnes CO2",
-                          fontSize: 22,
-                          letterSpacing: 1.1,
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Text(
-                          "Your carbon footprint is $changePercent% $_changePercentageSuffix than an average person",
-                          style: TextStyle(
-                            color: ColorPallete.color7,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 16,
+        body: SingleChildScrollView(
+          child: Container(
+            child: Column(
+              children: [
+                Container(
+                  color: ColorPallete.cardBackground,
+                  child: SizedBox(
+                    child: Container(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CoolText(
+                            "$userEmission tonnes CO2",
+                            fontSize: 22,
+                            letterSpacing: 1.1,
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  height: MediaQuery.of(context).size.height / 3,
-                  width: double.infinity,
-                ),
-              ),
-              SingleChildScrollView(
-                padding: EdgeInsets.all(8),
-                child: Column(
-                  children: <Widget>[
-                    Card(
-                      elevation: 2,
-                      shape: BeveledRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      color: ColorPallete.cardBackground,
-                      child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 10),
-                        child: FlutterSlider(
-                          values: _values,
-                          rangeSlider: true,
-                          disabled: true,
-                          min: 0,
-                          max: 100,
-                          trackBar: FlutterSliderTrackBar(
-                              activeDisabledTrackBarColor: _trackBarColor,
-                              inactiveDisabledTrackBarColor:
-                                  ColorPallete.color6),
-                          handler: _leftHandler,
-                          rightHandler: _rightHandler,
-                          tooltip: FlutterSliderTooltip(
-                            positionOffset:
-                                FlutterSliderTooltipPositionOffset(top: -5),
-                            boxStyle: FlutterSliderTooltipBox(
-                              decoration: BoxDecoration(
-                                color: ColorPallete.cardBackground,
-                              ),
-                            ),
-                            alwaysShowTooltip: true,
-                            textStyle: TextStyle(
-                              fontSize: 60,
-                              color: Colors.white,
-                            ),
-                            leftSuffix: toolTipLabel,
-                            rightSuffix: toolTipLabel,
+                          SizedBox(
+                            height: 15,
                           ),
-                        ),
-                      ),
-                    ),
-                    ...getDataGrids(
-                      _changePercentageSuffix,
-                      changePercent,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Divider(
-                      thickness: 0.7,
-                      color: ColorPallete.color6,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Card(
-                      color: ColorPallete.cardBackground,
-                      shape: BeveledRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: ListTile(
-                        // isThreeLine: true,
-                        title: CoolText(
-                          "Reduce carbon emissions",
-                          fontSize: 18,
-                          letterSpacing: 1.1,
-                        ),
-                        subtitle: Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                          child: Text(
-                            "Our earth needs it. Let's move together in this.",
+                          Text(
+                            "Your carbon footprint is $changePercent% $_changePercentageSuffix than an average person",
                             style: TextStyle(
                               color: ColorPallete.color7,
-                              fontSize: 13,
-                              letterSpacing: 0.7,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    height: MediaQuery.of(context).size.height / 3,
+                    width: double.infinity,
+                  ),
+                ),
+                SingleChildScrollView(
+                  padding: EdgeInsets.all(8),
+                  child: Column(
+                    children: <Widget>[
+                      Card(
+                        elevation: 2,
+                        shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        color: ColorPallete.cardBackground,
+                        child: Container(
+                          padding: EdgeInsets.symmetric(vertical: 10),
+                          child: FlutterSlider(
+                            values: _values,
+                            rangeSlider: true,
+                            disabled: true,
+                            min: 0,
+                            max: 100,
+                            trackBar: FlutterSliderTrackBar(
+                                activeDisabledTrackBarColor: _trackBarColor,
+                                inactiveDisabledTrackBarColor:
+                                    ColorPallete.color6),
+                            handler: _leftHandler,
+                            rightHandler: _rightHandler,
+                            tooltip: FlutterSliderTooltip(
+                              positionOffset:
+                                  FlutterSliderTooltipPositionOffset(top: -5),
+                              boxStyle: FlutterSliderTooltipBox(
+                                decoration: BoxDecoration(
+                                  color: ColorPallete.cardBackground,
+                                ),
+                              ),
+                              alwaysShowTooltip: true,
+                              textStyle: TextStyle(
+                                fontSize: 60,
+                                color: Colors.white,
+                              ),
+                              leftSuffix: toolTipLabel,
+                              rightSuffix: toolTipLabel,
                             ),
                           ),
                         ),
-                        trailing: Icon(
-                          Icons.nature,
-                          color: ColorPallete.color3,
+                      ),
+                      ...getDataGrids(
+                        _changePercentageSuffix,
+                        changePercent,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Divider(
+                        thickness: 0.7,
+                        color: ColorPallete.color6,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Card(
+                        color: ColorPallete.cardBackground,
+                        shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: ListTile(
+                          // isThreeLine: true,
+                          title: CoolText(
+                            "Reduce carbon emissions",
+                            fontSize: 18,
+                            letterSpacing: 1.1,
+                          ),
+                          subtitle: Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                            child: Text(
+                              "Our earth needs it. Let's move together in this.",
+                              style: TextStyle(
+                                color: ColorPallete.color7,
+                                fontSize: 13,
+                                letterSpacing: 0.7,
+                              ),
+                            ),
+                          ),
+                          trailing: Icon(
+                            Icons.nature,
+                            color: ColorPallete.color3,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

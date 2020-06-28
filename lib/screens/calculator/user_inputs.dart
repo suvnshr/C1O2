@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../result/result_screen.dart';
 import './user_input_questions.dart';
 import '../../helpers/colors.dart';
 
@@ -12,12 +12,6 @@ class UserInputs extends StatefulWidget {
 }
 
 class _UserInputsState extends State<UserInputs> {
-  // Map<String, String> answers = {
-  //   'Question0': '',
-  //   'Question1': '',
-  //   'Question2': '',
-  //   'Question3': '',
-  // };
   List answers = [];
 
   var index = 0;
@@ -80,9 +74,6 @@ class _UserInputsState extends State<UserInputs> {
                         width: size.width * 0.4,
                         child: TextFormField(
                           controller: _answerController,
-                          // onChanged: (){
-
-                          // },
                           decoration: InputDecoration(
                             enabledBorder: InputBorder.none,
                             filled: true,
@@ -98,23 +89,17 @@ class _UserInputsState extends State<UserInputs> {
                                   return;
                                 }
                                 answers.add(_answerController.text);
-                                if (index < questions.length) {
-                                  index += 1;
-                                } else if (index == questions.length) {
-                                  Navigator.of(context)
-                                      .pushNamed('', arguments: answers);
+                                if (index == questions.length) {
+                                  Navigator.of(context).pushNamed(
+                                      ResultScreen.routeName,
+                                      arguments: answers);
+                                } else {
+                                  index++;
+                                  print(index);
                                 }
                                 setState(() {});
-                                print(index);
-                                print(answers);
                               },
                             ),
-                            //hintText: 'Answer',
-                            // labelText: 'Answer',
-                            // labelStyle: TextStyle(
-                            //   color: ColorPallete.color3,
-                            //   fontSize: 20,
-                            // ),
                             alignLabelWithHint: true,
                             contentPadding: EdgeInsets.symmetric(
                               horizontal: 10,
@@ -123,13 +108,9 @@ class _UserInputsState extends State<UserInputs> {
                           ),
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.text,
-                          style:
-                              TextStyle(color: Theme.of(context).primaryColor),
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return 'enter a value';
-                            }
-                          },
+                          style: TextStyle(
+                            color: ColorPallete.color3,
+                          ),
                         ),
                       ),
                     ),
