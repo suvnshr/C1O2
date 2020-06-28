@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './user_input_questions.dart';
+import '../../helpers/colors.dart';
 
 class UserInputs extends StatelessWidget {
   List questions = [];
@@ -19,23 +20,20 @@ class UserInputs extends StatelessWidget {
               child: Container(
                 height: size.height,
                 width: size.width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    colors: [
-                      Colors.red.shade800,
-                      Colors.redAccent.shade400,
-                    ],
-                  ),
-                ),
+                decoration: BoxDecoration(color: ColorPallete.background),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Align(
-                      child: Text('Question'),
+                      child: Text(
+                        'Question',
+                        style: TextStyle(
+                          color: ColorPallete.cardHeading,
+                          fontSize: 22,
+                        ),
+                      ),
                     ),
                     SizedBox(
                       height: 50,
@@ -46,21 +44,15 @@ class UserInputs extends StatelessWidget {
                         child: TextFormField(
                           decoration: InputDecoration(
                             labelText: 'Answer',
-                            // border: OutlineInputBorder(
-                            //   borderRadius: BorderRadius.circular(30),
-                            // ),
                           ),
                           keyboardType: TextInputType.text,
                           style:
                               TextStyle(color: Theme.of(context).primaryColor),
-                          // validator: (value) {
-                          //   if (value.isEmpty) {
-                          //     return 'Invalid username!';
-                          //   }
-                          // },
-                          // onSaved: (value) {
-                          //   _authData['username'] = value;
-                          // },
+                          validator: ( value) {
+                            if (value.isEmpty) {
+                              return 'enter a value';
+                            }
+                          },
                         ),
                       ),
                     ),
