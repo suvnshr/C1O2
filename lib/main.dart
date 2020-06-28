@@ -1,3 +1,4 @@
+import 'package:C1O2/result/result_screen.dart';
 import 'package:C1O2/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -18,8 +19,11 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+      home: ResultScreen(
+        activityName: "Household",
+        userEmission: 70,
+        averageEmission: 50,
+      ),
     );
   }
 }
-

@@ -52,6 +52,12 @@ class UserInputs extends StatelessWidget {
                         ),
                       ),
                     ),
+                    Align(
+                      child: FlatButton(
+                        onPressed: () {},
+                        child: Text('Next'),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -87,7 +93,8 @@ class UserInputs extends StatelessWidget {
                             // ),
                           ),
                           keyboardType: TextInputType.text,
-                          style: TextStyle(color: Theme.of(context).primaryColor),
+                          style:
+                              TextStyle(color: Theme.of(context).primaryColor),
                           // validator: (value) {
                           //   if (value.isEmpty) {
                           //     return 'Invalid username!';
