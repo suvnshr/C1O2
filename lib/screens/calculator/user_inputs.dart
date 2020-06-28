@@ -30,7 +30,7 @@ class UserInputs extends StatelessWidget {
                       child: Text(
                         'Question',
                         style: TextStyle(
-                          color: ColorPallete.cardHeading,
+                          color: ColorPallete.color7,
                           fontSize: 22,
                         ),
                       ),
@@ -40,15 +40,36 @@ class UserInputs extends StatelessWidget {
                     ),
                     Align(
                       child: Container(
-                        width: size.width * 0.15,
+                        width: size.width * 0.4,
                         child: TextFormField(
                           decoration: InputDecoration(
-                            labelText: 'Answer',
+                            enabledBorder: InputBorder.none,
+                            filled: true,
+                            fillColor: ColorPallete.background.withBlue(-200),
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                Icons.trending_flat,
+                                color: ColorPallete.color4,
+                              ),
+                              onPressed: () {},
+                            ),
+                            //hintText: 'Answer',
+                            // labelText: 'Answer',
+                            // labelStyle: TextStyle(
+                            //   color: ColorPallete.color3,
+                            //   fontSize: 20,
+                            // ),
+                            alignLabelWithHint: true,
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 2,
+                            ),
                           ),
+                          textAlign: TextAlign.center,
                           keyboardType: TextInputType.text,
                           style:
                               TextStyle(color: Theme.of(context).primaryColor),
-                          validator: ( value) {
+                          validator: (value) {
                             if (value.isEmpty) {
                               return 'enter a value';
                             }
