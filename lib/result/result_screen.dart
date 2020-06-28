@@ -4,17 +4,76 @@ import 'package:flutter_xlider/flutter_xlider.dart';
 class ResultScreen extends StatelessWidget {
   final double userEmission;
   final double averageEmission;
+  final String activityName;
 
   Text toolTipLabel = Text(
     " tonnes CO2",
     style: TextStyle(fontSize: 20),
   );
 
-  ResultScreen({Key key, this.userEmission, this.averageEmission})
+  // returns the percentage change between 
+  // the emission by user and average emission of that category
+  double getChangePercentage() {
+    double changePercent =  ((userEmission - averageEmission) / averageEmission) * 100;
+
+    return changePercent >= 0 ? changePercent : -changePercent; 
+  }
+
+
+  ResultScreen(
+      {Key key, this.activityName, this.userEmission, this.averageEmission})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    FlutterSliderHandler _leftHandler, _rightHandler;
+
+    FlutterSliderHandler userHandler = FlutterSliderHandler(
+      decoration: BoxDecoration(),
+      child: Material(
+        type: MaterialType.canvas,
+        color: Colors.lightGreen,
+        elevation: 3,
+        child: Container(
+          padding: EdgeInsets.all(5),
+          child: Icon(
+            Icons.person,
+            size: 25,
+            color: Colors.green[800],
+          ),
+        ),
+      ),
+    );
+
+    FlutterSliderHandler avgHandler = FlutterSliderHandler(
+      decoration: BoxDecoration(),
+      child: Material(
+        type: MaterialType.canvas,
+        color: Colors.lightGreen,
+        elevation: 3,
+        child: Container(
+          padding: EdgeInsets.all(5),
+          child: Icon(Icons.nature_people, size: 25, color: Colors.green[900]),
+        ),
+      ),
+    );
+
+    List<double> _values = [userEmission, averageEmission];
+    Color _trackBarColor = Colors.green.withOpacity(0.5);
+    _leftHandler = userHandler;
+    _rightHandler = avgHandler;
+    String _changePercentageSuffix = "less";
+
+    double changePercent = getChangePercentage();
+
+    if (userEmission > averageEmission) {
+      _values = [averageEmission, userEmission];
+      _trackBarColor = Colors.red.withOpacity(0.5);
+      _leftHandler = avgHandler;
+      _rightHandler = userHandler;
+      _changePercentageSuffix = "more";
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Your Carbon Footprint"),
@@ -28,8 +87,7 @@ class ResultScreen extends StatelessWidget {
               elevation: 2,
               child: ListTile(
                 title: Text(
-                  "Your daily carbon footprint due to _houehold_ activities is 2 tonnes CO2",
-                  // style: TextStyle(fontSize: 18),
+                  "Your daily carbon footprint due to $activityName activities is $userEmission tonnes CO2",
                 ),
                 subtitle: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
@@ -44,48 +102,20 @@ class ResultScreen extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 20),
                     child: Text(
-                      "You are emitting 30% less carbon than a average person",
-                      // style: TextStyle(fontSize: 18),
+                      "You are emitting $changePercent% $_changePercentageSuffix carbon than a average person",
                     ),
                   ),
                   FlutterSlider(
-                    values: [userEmission, averageEmission],
+                    values: _values,
                     rangeSlider: true,
                     disabled: true,
                     min: 0,
                     max: 100,
                     trackBar: FlutterSliderTrackBar(
-                      activeDisabledTrackBarColor:Colors.green.withOpacity(0.5),
+                      activeDisabledTrackBarColor: _trackBarColor,
                     ),
-                    handler: FlutterSliderHandler(
-                      decoration: BoxDecoration(),
-                      child: Material(
-                        type: MaterialType.canvas,
-                        color: Colors.lightGreen,
-                        elevation: 3,
-                        child: Container(
-                          padding: EdgeInsets.all(5),
-                          child: Icon(
-                            Icons.person,
-                            size: 25,
-                            color: Colors.green[800],
-                          ),
-                        ),
-                      ),
-                    ),
-                    rightHandler: FlutterSliderHandler(
-                      decoration: BoxDecoration(),
-                      child: Material(
-                        type: MaterialType.canvas,
-                        color: Colors.lightGreen,
-                        elevation: 3,
-                        child: Container(
-                          padding: EdgeInsets.all(5),
-                          child: Icon(Icons.nature_people,
-                              size: 25, color: Colors.green[900]),
-                        ),
-                      ),
-                    ),
+                    handler: _leftHandler,
+                    rightHandler: _rightHandler,
                     tooltip: FlutterSliderTooltip(
                       alwaysShowTooltip: true,
                       textStyle: TextStyle(fontSize: 25),
@@ -100,7 +130,6 @@ class ResultScreen extends StatelessWidget {
               child: ListTile(
                 title: Text(
                   "Learn how to reduce your carbon footprint",
-                  // style: TextStyle(fontSize: 18),
                 ),
                 subtitle: Text("Make a difference"),
                 leading: Icon(Icons.info_outline),
