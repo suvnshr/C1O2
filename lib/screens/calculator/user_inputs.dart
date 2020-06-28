@@ -91,8 +91,9 @@ class _UserInputsState extends State<UserInputs> {
                                 answers.add(_answerController.text);
                                 if (index == questions.length -1) {
                                   Navigator.of(context).pushNamed(
-                                      ResultScreen.routeName,
-                                      arguments: answers);
+                                    ResultScreen.routeName,
+                                    arguments: answers,
+                                  );
                                 } else {
                                   index++;
                                   print(index);
