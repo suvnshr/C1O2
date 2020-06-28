@@ -28,16 +28,16 @@ class CarbonFootPrdouble {
   static final double emissionPerKmBicycle = 0.016;
 
   // Meat, Fish, eggs (calories)
-  static final double emissionPerUnitCalorieOfMeat = 0;
+  static final double emissionPerUnitCalorieOfMeat = 219.67;
 
   // grain & baked food (calories)
-  static final double emissionPerUnitCalorieOfGrain = 0;
+  static final double emissionPerUnitCalorieOfGrain = 15.34;
 
   // Dairy(calories)
-  static final double emissionPerUnitCalorieOfDairy = 0;
+  static final double emissionPerUnitCalorieOfDairy = 1.9;
 
   // Fruits & vegetables (calories)
-  static final double emissionPerUnitCalorieOfFruit = 0;
+  static final double emissionPerUnitCalorieOfFruit = 1.55;
 
   // Average
   // DUMMY DATA, FOR EXPERIMENT
