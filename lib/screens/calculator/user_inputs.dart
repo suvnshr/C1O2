@@ -22,6 +22,8 @@ class _UserInputsState extends State<UserInputs> {
 
   var index = 0;
 
+  final _answerController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context).settings.arguments;
@@ -57,7 +59,7 @@ class _UserInputsState extends State<UserInputs> {
                   children: [
                     Align(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal:40.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 40.0),
                         child: Text(
                           foodQ[index],
                           textAlign: TextAlign.center,
@@ -75,9 +77,10 @@ class _UserInputsState extends State<UserInputs> {
                       child: Container(
                         width: size.width * 0.4,
                         child: TextFormField(
-                          onChanged: (value){
-                            answers.add(value);
-                          },
+                          controller: _answerController,
+                          // onChanged: (){
+
+                          // },
                           decoration: InputDecoration(
                             enabledBorder: InputBorder.none,
                             filled: true,
@@ -88,14 +91,15 @@ class _UserInputsState extends State<UserInputs> {
                                 color: ColorPallete.color4,
                               ),
                               onPressed: () {
-                                setState(() {
-                                  if(index <= questions.length){
-                                    index += 1;
-                                  }
-                                });
-                                if(index > foodQ.length){
-                                  Navigator.of(context).pushNamed('', arguments: answers);
+                                answers.add(_answerController.text);
+                                if (index < foodQ.length) {
+                                  index += 1;
+                                } else if (index == foodQ.length) {
+                                  Navigator.of(context)
+                                      .pushNamed('', arguments: answers);
                                 }
+                                setState(() {});
+                                print(index);
                                 print(answers);
                               },
                             ),
