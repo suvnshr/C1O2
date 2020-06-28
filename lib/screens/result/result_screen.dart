@@ -155,8 +155,11 @@ class ResultScreen extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: ColorPallete.cardBackground,
           automaticallyImplyLeading: false,
-          leading: Icon(
-            Icons.arrow_back,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
             color: ColorPallete.color7,
           ),
           title: Text(
