@@ -7,6 +7,7 @@ class UserInputs extends StatelessWidget {
   Map<String, String> answers = {
     'Question1': '',
   };
+  static const String routeName = 'userInput';
 
   @override
   Widget build(BuildContext context) {
