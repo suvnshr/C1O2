@@ -1,5 +1,6 @@
 import 'package:C1O2/helpers/colors.dart';
 import 'package:C1O2/screens/calculator/user_inputs.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
@@ -52,18 +53,16 @@ class StartScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(
                   horizontal: 20,
                 ),
-                child: RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: 'Hey there! ',
-                        style: kTextStyle,
-                      ),
-                      TextSpan(
-                        text: '👋',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ],
+                child: TypewriterAnimatedTextKit(
+                  totalRepeatCount: 2,
+                  speed: Duration(seconds: 2),
+                  text: [
+                    'Hey there !',
+                    'You can make a difference!',
+                    'Start today!'
+                  ],
+                  textStyle: kTextStyle.copyWith(
+                    fontFamily: "Orbitron",
                   ),
                 ),
               ),
@@ -84,7 +83,7 @@ class StartScreen extends StatelessWidget {
               ),
               CustomCard(
                 'Commute',
-                'assets/images/Electriccar2.gif',
+                'assets/images/finalcar.png',
                 'travel',
               ),
               SizedBox(
@@ -92,7 +91,7 @@ class StartScreen extends StatelessWidget {
               ),
               CustomCard(
                 'Household',
-                'assets/images/watching_news.gif',
+                'assets/images/finaltv.png',
                 'water',
               ),
               SizedBox(
@@ -100,7 +99,7 @@ class StartScreen extends StatelessWidget {
               ),
               CustomCard(
                 'Food',
-                'assets/images/eating_together.gif',
+                'assets/images/Cooking-pana.png',
                 'food',
               ),
               SizedBox(
@@ -189,3 +188,19 @@ class CustomCard extends StatelessWidget {
     );
   }
 }
+
+RichText myText = RichText(
+    text: TextSpan(
+  children: [
+    TextSpan(
+      text: 'Hey there! ',
+      style: kTextStyle.copyWith(
+        fontFamily: "Orbitron",
+      ),
+    ),
+    TextSpan(
+      text: '👋',
+      style: TextStyle(fontSize: 20),
+    ),
+  ],
+));

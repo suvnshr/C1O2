@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
           ReduceEmissionScreen.routeName: (context) => ReduceEmissionScreen(),
           ResultScreen.routeName: (context) => ResultScreen(
                 activityName: "Household",
-                userEmission: 70,
+                userEmission: 20,
                 averageEmission: 50,
               ),
         },
