@@ -55,7 +55,7 @@ class StartScreen extends StatelessWidget {
                 ),
                 child: TypewriterAnimatedTextKit(
                   totalRepeatCount: 3,
-                  speed: Duration(seconds: 3),
+                  speed: Duration(seconds: 1),
                   text: ['Hey there !', 'Make a difference!', 'Start today!'],
                   textStyle: kTextStyle.copyWith(
                     fontFamily: "Orbitron",
