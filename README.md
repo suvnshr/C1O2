@@ -1,16 +1,27 @@
+<p align="center">
+    <img src="assets/images/C1O2_icon.png">
+</p>
+
 # C1O2
 
-A new Flutter project.
+A futuristic app which calculates your carbon footprint due to Travel, Food and Household activities. Gives you tips to reduce your carbon footprints.
 
-## Getting Started
+# App Preview
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+<p align="center">
+    <img src="assets/images/home_screen.png" height="500px">
+</p>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<p align="center">
+    <img src="assets/images/household_input.png" height="500px">
+</p>
+<p align="center">
+    <img src="assets/images/travel_input.png" height="500px">
+</p>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+    <img src="assets/images/result_screen.png" height="500px">
+</p>
+
+<hr/>
