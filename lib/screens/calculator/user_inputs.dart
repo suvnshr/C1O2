@@ -110,13 +110,10 @@ class _UserInputsState extends State<UserInputs> {
                                 child: TextFormField(
                                   controller: _answerController,
                                   decoration: InputDecoration(
-                                    //enabledBorder: InputBorder.none,
-                                    //filled: true,
-                                    //fillColor: ColorPallete.background.withBlue(-200),
                                     suffixIcon: IconButton(
                                       icon: Icon(
                                         Icons.trending_flat,
-                                        color: ColorPallete.color4,
+                                        color: ColorPallete.color3,
                                       ),
                                       onPressed: () {
                                         if (_answerController.text == '' ||
@@ -133,6 +130,7 @@ class _UserInputsState extends State<UserInputs> {
                                         } else {
                                           index++;
                                         }
+                                        _answerController.text = '';
                                         setState(() {});
                                       },
                                     ),
@@ -143,7 +141,7 @@ class _UserInputsState extends State<UserInputs> {
                                     ),
                                   ),
                                   textAlign: TextAlign.center,
-                                  keyboardType: TextInputType.text,
+                                  keyboardType: TextInputType.number,
                                   style: TextStyle(
                                     color: ColorPallete.color3,
                                   ),
@@ -225,7 +223,7 @@ class _UserInputsState extends State<UserInputs> {
                                         suffixIcon: IconButton(
                                           icon: Icon(
                                             Icons.trending_flat,
-                                            color: ColorPallete.color4,
+                                            color: ColorPallete.color3,
                                           ),
                                           onPressed: () {
                                             if (_answerController.text == '' ||
@@ -242,6 +240,7 @@ class _UserInputsState extends State<UserInputs> {
                                             } else {
                                               index++;
                                             }
+                                            _answerController.text = '';
                                             setState(() {});
                                           },
                                         ),
@@ -252,7 +251,7 @@ class _UserInputsState extends State<UserInputs> {
                                         ),
                                       ),
                                       textAlign: TextAlign.center,
-                                      keyboardType: TextInputType.text,
+                                      keyboardType: TextInputType.number,
                                       style: TextStyle(
                                         color: ColorPallete.color3,
                                       ),
@@ -283,18 +282,6 @@ class _UserInputsState extends State<UserInputs> {
                             animation: 'flow',
                             alignment: Alignment.bottomCenter,
                           ),
-                        // if (index == 1)
-                        //   FlareActor(
-                        //     'assets/flare/base_water.flr',
-                        //     animation: 'flow',
-                        //     alignment: Alignment.bottomCenter,
-                        //   ),
-                        // if (index == 2)
-                        //   FlareActor(
-                        //     'assets/flare/foodstash_f_0.flr',
-                        //     animation: 'flow',
-                        //     alignment: Alignment.bottomCenter,
-                        //   ),
                         if (index == 3)
                           FlareActor(
                             'assets/flare/water_flow.flr',
@@ -341,7 +328,7 @@ class _UserInputsState extends State<UserInputs> {
                                         suffixIcon: IconButton(
                                           icon: Icon(
                                             Icons.trending_flat,
-                                            color: ColorPallete.color4,
+                                            color: ColorPallete.color3,
                                           ),
                                           onPressed: () {
                                             if (_answerController.text == '' ||
@@ -358,6 +345,7 @@ class _UserInputsState extends State<UserInputs> {
                                             } else {
                                               index++;
                                             }
+                                            _answerController.text = '';
                                             setState(() {});
                                           },
                                         ),
@@ -368,7 +356,7 @@ class _UserInputsState extends State<UserInputs> {
                                         ),
                                       ),
                                       textAlign: TextAlign.center,
-                                      keyboardType: TextInputType.text,
+                                      keyboardType: TextInputType.number,
                                       style: TextStyle(
                                         color: ColorPallete.color3,
                                       ),
