@@ -1,5 +1,6 @@
 import 'package:C1O2/helpers/colors.dart';
 import 'package:C1O2/helpers/text_theme.dart';
+import 'package:C1O2/screens/reduce/reduce_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_xlider/flutter_xlider.dart';
 
@@ -269,7 +270,12 @@ class ResultScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: ListTile(
-                          // isThreeLine: true,
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              ReduceEmissionScreen.routeName
+                            );
+                          },
                           title: CoolText(
                             "Reduce carbon emissions",
                             fontSize: 18,
