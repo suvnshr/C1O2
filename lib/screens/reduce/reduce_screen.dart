@@ -1,5 +1,6 @@
 import 'package:C1O2/helpers/colors.dart';
 import 'package:C1O2/helpers/text_theme.dart';
+import 'package:C1O2/screens/home/startScreen.dart';
 import 'package:flutter/material.dart';
 
 class ReduceEmissionScreen extends StatelessWidget {
@@ -190,7 +191,12 @@ class ReduceEmissionScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         backgroundColor: ColorPallete.cardBackground.withBlue(150),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(
+            context,
+            StartScreen.routeName,
+          );
+        },
         label: Text(
           "Home",
           style: TextStyle(
