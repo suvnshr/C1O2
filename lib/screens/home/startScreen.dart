@@ -57,7 +57,9 @@ class StartScreen extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: 'Hey there! ',
-                        style: kTextStyle.copyWith(fontFamily: "Orbitron",),
+                        style: kTextStyle.copyWith(
+                          fontFamily: "Orbitron",
+                        ),
                       ),
                       TextSpan(
                         text: '👋',
@@ -84,7 +86,7 @@ class StartScreen extends StatelessWidget {
               ),
               CustomCard(
                 'Commute',
-                'assets/images/Electriccar2.gif',
+                'assets/images/finalcar.png',
                 'travel',
               ),
               SizedBox(
@@ -92,7 +94,7 @@ class StartScreen extends StatelessWidget {
               ),
               CustomCard(
                 'Household',
-                'assets/images/watching_news.gif',
+                'assets/images/finaltv.png',
                 'water',
               ),
               SizedBox(
@@ -100,7 +102,7 @@ class StartScreen extends StatelessWidget {
               ),
               CustomCard(
                 'Food',
-                'assets/images/eating_together.gif',
+                'assets/images/Cooking-pana.png',
                 'food',
               ),
               SizedBox(
