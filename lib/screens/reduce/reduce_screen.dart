@@ -9,8 +9,10 @@ class ReduceEmissionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorPallete.background,
-      body: Container(
-        child: Text("Hello World !!"),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [],
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       floatingActionButton: FloatingActionButton.extended(
