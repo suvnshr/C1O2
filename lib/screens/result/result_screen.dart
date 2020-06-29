@@ -192,6 +192,7 @@ class ResultScreen extends StatelessWidget {
                           ),
                           Text(
                             "Your carbon footprint is $changePercent% $_changePercentageSuffix than an average person",
+                            textAlign: TextAlign.center,
                             style: TextStyle(
                               color: ColorPallete.color7,
                               fontWeight: FontWeight.w400,
