@@ -161,22 +161,28 @@ class ReduceEmissionScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              color: ColorPallete.cardBackground,
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height / 6,
-                width: double.infinity,
-                child: Center(
-                  child: CoolText(
-                    "Reduce your carbon footprint",
-                    fontSize: 20,
-                    letterSpacing: 1.1,
-                  ),
-                ),
-              ),
-            ),
+            // Container(
+            //   color: ColorPallete.cardBackground,
+            //   child: SizedBox(
+            //     height: MediaQuery.of(context).size.height / 6,
+            //     width: double.infinity,
+            //     child: Column(
+            //       mainAxisAlignment: MainAxisAlignment.center,
+            //       children: [
+            //         Padding(
+            //           padding: const EdgeInsets.all(10),
+            //           child: CoolText(
+            //             "Reduce your carbon footprint",
+            //             fontSize: 18,
+            //             letterSpacing: 1.1,
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
             SizedBox(
-              height: 10,
+              height: 30,
             ),
             ...getWidgetTree(),
             SizedBox(
