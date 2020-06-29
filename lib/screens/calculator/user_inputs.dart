@@ -169,7 +169,8 @@ class _UserInputsState extends State<UserInputs> {
                         Positioned(
                           child: FlareActor(
                             'assets/flare/base_one.flr',
-                            animation: 'flow',
+                            animation: 'Flow',
+                            fit: BoxFit.cover,
                           ),
                         ),
                         if (index == 0)
@@ -187,12 +188,6 @@ class _UserInputsState extends State<UserInputs> {
                         if (index == 2)
                           FlareActor(
                             'assets/flare/foodstash_f_0.flr',
-                            animation: 'flow',
-                            alignment: Alignment.bottomCenter,
-                          ),
-                        if (index == 3)
-                          FlareActor(
-                            'assets/flare/tv.flr',
                             animation: 'flow',
                             alignment: Alignment.bottomCenter,
                           ),
@@ -287,29 +282,30 @@ class _UserInputsState extends State<UserInputs> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        if (index == 0)
+                        if (index == 0 || index == 1 || index == 2)
                           FlareActor(
-                            'assets/flare/tv.flr',
-                            animation: 'Flow',
-                            alignment: Alignment.bottomCenter,
-                          ),
-                        if (index == 1)
-                          FlareActor(
-                            'assets/flare/base_water.flr',
+                            'assets/flare/watch_tv.flr',
                             animation: 'flow',
                             alignment: Alignment.bottomCenter,
                           ),
-                        if (index == 2)
-                          FlareActor(
-                            'assets/flare/foodstash_f_0.flr',
-                            animation: 'flow',
-                            alignment: Alignment.bottomCenter,
-                          ),
+                        // if (index == 1)
+                        //   FlareActor(
+                        //     'assets/flare/base_water.flr',
+                        //     animation: 'flow',
+                        //     alignment: Alignment.bottomCenter,
+                        //   ),
+                        // if (index == 2)
+                        //   FlareActor(
+                        //     'assets/flare/foodstash_f_0.flr',
+                        //     animation: 'flow',
+                        //     alignment: Alignment.bottomCenter,
+                        //   ),
                         if (index == 3)
                           FlareActor(
-                            'assets/flare/tv.flr',
+                            'assets/flare/water_flow.flr',
                             animation: 'flow',
-                            alignment: Alignment.bottomCenter,
+                            alignment: Alignment.bottomRight,
+                            fit: BoxFit.fitWidth,
                           ),
                         Positioned(
                           child: Container(
