@@ -53,35 +53,30 @@ class _UserInputsState extends State<UserInputs> {
                     ),
                     Positioned(
                       child: FlareActor(
-                        'assets/flare/base_one.flr',
+                        'assets/flare/base_two_flow.flr',
                         animation: 'flow',
+                        fit: BoxFit.cover,
+                        color: ColorPallete.background,
                       ),
                     ),
-                    if (index == 0)
-                      FlareActor(
-                        'assets/flare/tv.flr',
-                        animation: 'flow',
+                    if (index == 0 || index == 1)
+                      Align(
                         alignment: Alignment.bottomCenter,
+                        child: FlareActor(
+                          'assets/flare/food_1.flr',
+                          animation: 'flow',
+                          fit: BoxFit.fitWidth,
+                        ),
                       ),
-                    if (index == 1)
-                      FlareActor(
-                        'assets/flare/base_water.flr',
-                        animation: 'flow',
-                        alignment: Alignment.bottomCenter,
-                      ),
-                    if (index == 2)
-                      FlareActor(
-                        'assets/flare/foodstash_f_0.flr',
-                        animation: 'flow',
-                        alignment: Alignment.bottomCenter,
-                      ),
-                    if (index == 3)
-                      FlareActor(
-                        'assets/flare/tv.flr',
-                        animation: 'flow',
-                        alignment: Alignment.bottomCenter,
+                    if (index == 2 || index == 3)
+                      Padding(
+                        padding: const EdgeInsets.all(30.0),
+                        child: Image.asset(
+                          'assets/images/eat_1.png',
+                        ),
                       ),
                     Positioned(
+                      top: 150,
                       child: Container(
                         height: size.height,
                         width: size.width,
@@ -94,7 +89,8 @@ class _UserInputsState extends State<UserInputs> {
                             Align(
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 40.0),
+                                  horizontal: 40.0,
+                                ),
                                 child: Text(
                                   questions[index],
                                   textAlign: TextAlign.center,
@@ -184,7 +180,10 @@ class _UserInputsState extends State<UserInputs> {
                             alignment: Alignment.bottomRight,
                             child: Container(
                               height: size.height * 0.3,
-                              child: Image.asset('assets/images/car.png', fit: BoxFit.cover,),
+                              child: Image.asset(
+                                'assets/images/car.png',
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         Positioned(
