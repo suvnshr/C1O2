@@ -1,5 +1,7 @@
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flare_dart/actor.dart';
 
 import '../result/result_screen.dart';
 import './user_input_questions.dart';
@@ -43,11 +45,33 @@ class _UserInputsState extends State<UserInputs> {
       body: Container(
         child: Stack(
           children: [
+            Container(
+              color:ColorPallete.background,
+            ),
+
+            if(args == 'food')
+            FlareActor(
+              'assets/flare/foodstash_f_0.flr',
+              animation: 'Flow',
+            ),
+
+            if(args == 'travel')
+            FlareActor(
+              'assets/flare/foodstash_f_0.flr',
+              animation: 'Flow',
+            ),
+            
+            if(args == 'water')
+            FlareActor(
+              'assets/flare/foodstash_f_0.flr',
+              animation: 'Flow',
+            ),
+
             Positioned(
               child: Container(
                 height: size.height,
                 width: size.width,
-                decoration: BoxDecoration(color: ColorPallete.background),
+                //decoration: BoxDecoration(color: ColorPallete.background),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -60,7 +84,7 @@ class _UserInputsState extends State<UserInputs> {
                           questions[index],
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: ColorPallete.color7,
+                            color: ColorPallete.color3,
                             fontSize: 20,
                           ),
                         ),
@@ -75,9 +99,9 @@ class _UserInputsState extends State<UserInputs> {
                         child: TextFormField(
                           controller: _answerController,
                           decoration: InputDecoration(
-                            enabledBorder: InputBorder.none,
-                            filled: true,
-                            fillColor: ColorPallete.background.withBlue(-200),
+                            //enabledBorder: InputBorder.none,
+                            //filled: true,
+                            //fillColor: ColorPallete.background.withBlue(-200),
                             suffixIcon: IconButton(
                               icon: Icon(
                                 Icons.trending_flat,

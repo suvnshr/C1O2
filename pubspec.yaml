@@ -26,6 +26,8 @@ dependencies:
     sdk: flutter
   google_fonts: ^1.1.0
   provider:
+  flare_flutter: ^2.0.4
+
   
 
   # The following adds the Cupertino Icons font to your application.
@@ -43,11 +45,13 @@ dev_dependencies:
 flutter:
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
-  # the material Icons class.
+  # the material Icons class.  flare_flutter: ^2.0.4
+
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/flare/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
