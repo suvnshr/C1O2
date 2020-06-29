@@ -1,3 +1,4 @@
+import 'package:C1O2/helpers/colors.dart';
 import 'package:C1O2/screens/home/startScreen.dart';
 import 'package:C1O2/screens/reduce/reduce_screen.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,13 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           fontFamily: "Orbitron",
           primarySwatch: Colors.blue,
+          cursorColor: ColorPallete.color3,
+          inputDecorationTheme: InputDecorationTheme(
+            focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+              color: ColorPallete.color3,
+            )),
+          ),
           // This makes the visual density adapt to the platform that you run
           // the app on. For desktop platforms, the controls will be smaller and
           // closer together (more dense) than on mobile platforms.
