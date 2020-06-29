@@ -57,7 +57,7 @@ class StartScreen extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: 'Hey there! ',
-                        style: kTextStyle,
+                        style: kTextStyle.copyWith(fontFamily: "Orbitron",),
                       ),
                       TextSpan(
                         text: '👋',
