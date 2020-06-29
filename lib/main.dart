@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import 'package:C1O2/screens/home/startScreen.dart';
+=======
+import 'package:C1O2/screens/reduce/reduce_screen.dart';
+>>>>>>> e703446c89794cdb66a1ddd0c9ee76414b160ba0
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +25,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'C1O2',
         theme: ThemeData(
+          fontFamily: "Orbitron",
           primarySwatch: Colors.blue,
           // This makes the visual density adapt to the platform that you run
           // the app on. For desktop platforms, the controls will be smaller and
@@ -36,6 +41,7 @@ class MyApp extends StatelessWidget {
         routes: {
           StartScreen.routeName: (context) => StartScreen(),
           UserInputs.routeName: (context) => UserInputs(),
+          ReduceEmissionScreen.routeName: (context) => ReduceEmissionScreen(),
           ResultScreen.routeName: (context) => ResultScreen(
                 activityName: "Household",
                 userEmission: 70,
