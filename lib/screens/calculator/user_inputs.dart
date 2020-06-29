@@ -22,7 +22,7 @@ class _UserInputsState extends State<UserInputs> {
 
   @override
   Widget build(BuildContext context) {
-    var args = 'water'; //ModalRoute.of(context).settings.arguments as String;
+    var args = ModalRoute.of(context).settings.arguments as String;
     final size = MediaQuery.of(context).size;
 
     List foodQ = Provider.of<Questions>(context).foodQuestions;
@@ -175,22 +175,17 @@ class _UserInputsState extends State<UserInputs> {
                         ),
                         if (index == 0)
                           FlareActor(
-                            'assets/flare/tv.flr',
+                            'assets/flare/.flr',
                             animation: 'flow',
                             alignment: Alignment.bottomCenter,
                           ),
-                        if (index == 1)
+                        if (index == 1 || index == 2)
                           FlareActor(
-                            'assets/flare/base_water.flr',
+                            'assets/flare/bicycle_flow.flr',
                             animation: 'flow',
                             alignment: Alignment.bottomCenter,
                           ),
-                        if (index == 2)
-                          FlareActor(
-                            'assets/flare/foodstash_f_0.flr',
-                            animation: 'flow',
-                            alignment: Alignment.bottomCenter,
-                          ),
+                        
                         Positioned(
                           child: Container(
                             height: size.height,
