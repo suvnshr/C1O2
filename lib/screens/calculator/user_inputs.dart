@@ -173,19 +173,20 @@ class _UserInputsState extends State<UserInputs> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        if (index == 0)
-                          FlareActor(
-                            'assets/flare/.flr',
-                            animation: 'flow',
-                            alignment: Alignment.bottomCenter,
-                          ),
-                        if (index == 1 || index == 2)
+                        if (index == 0 || index == 2)
                           FlareActor(
                             'assets/flare/bicycle_flow.flr',
                             animation: 'flow',
                             alignment: Alignment.bottomCenter,
                           ),
-                        
+                        if (index == 1)
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: Container(
+                              height: size.height * 0.3,
+                              child: Image.asset('assets/images/car.png', fit: BoxFit.cover,),
+                            ),
+                          ),
                         Positioned(
                           child: Container(
                             height: size.height,
