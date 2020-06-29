@@ -1,9 +1,9 @@
+import 'package:C1O2/screens/home/startScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
 import './screens/result/result_screen.dart';
-import './screens/home/home_screen.dart';
 import './screens/calculator/user_inputs.dart';
 import './screens/calculator/user_input_questions.dart';
 
@@ -27,14 +27,14 @@ class MyApp extends StatelessWidget {
           // closer together (more dense) than on mobile platforms.
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        initialRoute: HomeScreen.routeName,
+        initialRoute: StartScreen.routeName,
         // home: ResultScreen(
         //         activityName: "Household",
         //         userEmission: 70,
         //         averageEmission: 50,
         //       ),//HomeScreen.routeName,
         routes: {
-          HomeScreen.routeName: (context) => HomeScreen(),
+          StartScreen.routeName: (context) => StartScreen(),
           UserInputs.routeName: (context) => UserInputs(),
           ResultScreen.routeName: (context) => ResultScreen(
                 activityName: "Household",
