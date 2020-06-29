@@ -110,6 +110,9 @@ class _UserInputsState extends State<UserInputs> {
                                 child: TextFormField(
                                   controller: _answerController,
                                   decoration: InputDecoration(
+                                    hintText: '(In Grams)',
+                                    hintStyle:
+                                        TextStyle(color: ColorPallete.color4),
                                     suffixIcon: IconButton(
                                       icon: Icon(
                                         Icons.trending_flat,
@@ -217,6 +220,9 @@ class _UserInputsState extends State<UserInputs> {
                                     child: TextFormField(
                                       controller: _answerController,
                                       decoration: InputDecoration(
+                                        hintText: '(In miles)',
+                                        hintStyle: TextStyle(
+                                            color: ColorPallete.color4),
                                         //enabledBorder: InputBorder.none,
                                         //filled: true,
                                         //fillColor: ColorPallete.background.withBlue(-200),
@@ -322,6 +328,10 @@ class _UserInputsState extends State<UserInputs> {
                                     child: TextFormField(
                                       controller: _answerController,
                                       decoration: InputDecoration(
+                                        
+                                        hintText: index == 3 ? '' : '(In Hrs)',
+                                        hintStyle: TextStyle(
+                                            color: ColorPallete.color4),
                                         //enabledBorder: InputBorder.none,
                                         //filled: true,
                                         //fillColor: ColorPallete.background.withBlue(-200),
