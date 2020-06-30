@@ -14,15 +14,15 @@ class ReduceEmissionScreen extends StatelessWidget {
         'options': [
           {
             'icon': Icons.do_not_disturb_alt,
-            'message': 'don\'t do something',
+            'message': 'Do not forget to switch off the lights or unplug your electronic devices when they are not in use',
           },
           {
             'icon': Icons.done_outline,
-            'message': 'do something',
+            'message': 'Lower the amount of energy used to pump,treat and heat water by washing your car less often, using climate-appropriate plants in garden',
           },
           {
             'icon': Icons.do_not_disturb_alt,
-            'message': 'don\'t do something',
+            'message': 'Don\'t set thermostat too high or low. Install a programmable model to turn off the heat or air conditioning when you\'re not at home',
           },
         ]
       },
@@ -32,15 +32,15 @@ class ReduceEmissionScreen extends StatelessWidget {
         'options': [
           {
             'icon': Icons.do_not_disturb_alt,
-            'message': 'don\'t do something',
+            'message': 'Do not unnecessarily speed up or accelerate,it increases the mileage upto 33%, waste gas, money and increases carbon emission',
           },
           {
             'icon': Icons.done_outline,
-            'message': 'do something',
+            'message': 'When possible,walk or ride your bike in order to avoid carbon emission completely',
           },
           {
             'icon': Icons.do_not_disturb_alt,
-            'message': 'don\'t do something',
+            'message': 'Don\'t buy a minivan or SUV if you don\'t need 4WD and/or will ocassionally need extra space',
           },
         ]
       },
@@ -50,15 +50,15 @@ class ReduceEmissionScreen extends StatelessWidget {
         'options': [
           {
             'icon': Icons.do_not_disturb_alt,
-            'message': 'don\'t do something',
+            'message': 'Stop wasting food!',
           },
           {
             'icon': Icons.done_outline,
-            'message': 'do something',
+            'message': 'Eat low on the food chain',
           },
           {
             'icon': Icons.do_not_disturb_alt,
-            'message': 'don\'t do something',
+            'message': 'Don\'t eat excess calories!',
           },
         ]
       },
