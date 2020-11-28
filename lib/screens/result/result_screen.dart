@@ -226,6 +226,7 @@ class ResultScreen extends StatelessWidget {
                         child: Container(
                           padding: EdgeInsets.symmetric(vertical: 10),
                           child: FlutterSlider(
+                            step: FlutterSliderStep(step: 0.01),
                             values: _values,
                             rangeSlider: true,
                             disabled: true,
