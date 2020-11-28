@@ -47,11 +47,6 @@ class MyApp extends StatelessWidget {
           StartScreen.routeName: (context) => StartScreen(),
           UserInputs.routeName: (context) => UserInputs(),
           ReduceEmissionScreen.routeName: (context) => ReduceEmissionScreen(),
-          ResultScreen.routeName: (context) => ResultScreen(
-                activityName: "Household",
-                userEmission: 20,
-                averageEmission: 50,
-              ),
         },
       ),
     );

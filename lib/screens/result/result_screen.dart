@@ -11,6 +11,10 @@ class ResultScreen extends StatelessWidget {
 
   static final routeName = "/result";
 
+  ResultScreen(
+      {Key key, this.activityName, this.userEmission, this.averageEmission})
+      : super(key: key);
+
   Text toolTipLabel = Text(
     " tonnes CO2",
     style: TextStyle(
@@ -19,29 +23,31 @@ class ResultScreen extends StatelessWidget {
     ),
   );
 
+  double roundOff(double value) {
+    return double.parse(value.toStringAsFixed(2));
+  }
+
   // returns the percentage change between
   // the emission by user and average emission of that category
   double getChangePercentage() {
     double changePercent =
         ((userEmission - averageEmission) / averageEmission) * 100;
 
-    return changePercent >= 0 ? changePercent : -changePercent;
-  }
+    changePercent = changePercent >= 0 ? changePercent : -changePercent;
 
-  ResultScreen(
-      {Key key, this.activityName, this.userEmission, this.averageEmission})
-      : super(key: key);
+    return roundOff(changePercent);
+  }
 
   List<Widget> getDataGrids(String changePrefix, double changePercent) {
     List<Map> emissionDatas = [
       {
         'text': 'Your carbon footprint for $activityName activities',
-        'figure': '$userEmission tonnes CO2',
+        'figure': '${roundOff(userEmission)} tonnes CO2',
         'icon': Icons.person_outline,
       },
       {
         'text': 'Average carbon footprint for $activityName',
-        'figure': '$averageEmission tonnes CO2',
+        'figure': '${roundOff(averageEmission)} tonnes CO2',
         'icon': Icons.nature_people,
       },
       {
@@ -135,7 +141,7 @@ class ResultScreen extends StatelessWidget {
       ),
     );
 
-    List<double> _values = [userEmission, averageEmission];
+    List<double> _values = [roundOff(userEmission), roundOff(averageEmission)];
     Color _trackBarColor = Colors.greenAccent;
     _leftHandler = userHandler;
     _rightHandler = avgHandler;
@@ -144,7 +150,7 @@ class ResultScreen extends StatelessWidget {
     double changePercent = getChangePercentage();
 
     if (userEmission > averageEmission) {
-      _values = [averageEmission, userEmission];
+      _values = [roundOff(averageEmission), roundOff(userEmission)];
       _trackBarColor = Colors.red;
       _leftHandler = avgHandler;
       _rightHandler = userHandler;
@@ -184,7 +190,7 @@ class ResultScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CoolText(
-                            "$userEmission tonnes CO2",
+                            "${roundOff(userEmission)} tonnes CO2",
                             fontSize: 22,
                             letterSpacing: 1.1,
                           ),
@@ -224,7 +230,8 @@ class ResultScreen extends StatelessWidget {
                             rangeSlider: true,
                             disabled: true,
                             min: 0,
-                            max: 100,
+                            // Set a max limit according to the highest value between `userEmission` & `avgEmission`
+                            max: _values[1] + _values[1] / 10,
                             trackBar: FlutterSliderTrackBar(
                                 activeDisabledTrackBarColor: _trackBarColor,
                                 inactiveDisabledTrackBarColor:
@@ -272,9 +279,7 @@ class ResultScreen extends StatelessWidget {
                         child: ListTile(
                           onTap: () {
                             Navigator.pushNamed(
-                              context,
-                              ReduceEmissionScreen.routeName
-                            );
+                                context, ReduceEmissionScreen.routeName);
                           },
                           title: CoolText(
                             "Reduce carbon emissions",

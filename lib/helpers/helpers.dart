@@ -1,4 +1,4 @@
-class CarbonFootPrdouble {
+class CarbonFootPrint {
   // >> Emission unit = kg of CO2
 
   // Common electric devices consumptions
@@ -40,20 +40,18 @@ class CarbonFootPrdouble {
   static final double emissionPerUnitCalorieOfFruit = 1.55;
 
   // Average
-  // DUMMY DATA, FOR EXPERIMENT
-  static final double avgEmissionDueToHouseHoldPerDay = 50;
-  static final double avgEmissionDueToFoodPerDay = 50;
-  static final double avgEmissionDueToTravelPerDay = 50;
-
+  // TODO: DUMMY DATA, FOR EXPERIMENT
+  static final double avgEmissionDueToHouseHoldPerDay = 10;
+  static final double avgEmissionDueToFoodPerDay = 10;
+  static final double avgEmissionDueToTravelPerDay = 10;
 
   // Get the daily carbon footprint of your household activities
-  double getDailyHouseHoldCarbonFootPrdouble(
+  static double getDailyHouseHoldCarbonFootPrint(
     double hoursFanUsed,
     double hoursTVUsed,
     double hoursFridgeUsed,
     double litresOfWaterUsed,
   ) {
-
     double electrictyComsunptioninKWH = (hoursFanUsed * kwhUsedByFanPerHour +
         hoursTVUsed * kwhUsedByTVPerHour +
         hoursFridgeUsed * kwhUsedByFridgePerHour);
@@ -62,32 +60,32 @@ class CarbonFootPrdouble {
         emissionPerUnitElectricity * electrictyComsunptioninKWH;
     double emissionDueToWater = emissionPerUnitWater * litresOfWaterUsed;
 
-    return (emissionDueToElectricity + emissionDueToWater) / 1000;
+    return (emissionDueToElectricity + emissionDueToWater) ;
   }
 
   // Get the daily footprint of your travel related activities
-  double getDailyTravelFootPrint(double distanceTravelledByBike,
+  static double getDailyTravelFootPrint(double distanceTravelledByBike,
       double distanceTravelledByCar, double distanceTravelledByBicycle) {
     return (emissionPerKmBike * distanceTravelledByBike +
-        emissionPerKmCar * distanceTravelledByCar +
-        emissionPerKmBicycle * distanceTravelledByBicycle) / 1000;
+            emissionPerKmCar * distanceTravelledByCar +
+            emissionPerKmBicycle * distanceTravelledByBicycle);
   }
 
   // Get the daily footprint of your food related activities
-  double getDailyFoodCarbonFootPrint(
+  static double getDailyFoodCarbonFootPrint(
     double meatCalorieIntake,
     double grainCalorieIntake,
     double dairyCalorieIntake,
     double fruitCalorieIntake,
   ) {
     return (meatCalorieIntake * emissionPerUnitCalorieOfMeat +
-        grainCalorieIntake * emissionPerUnitCalorieOfGrain +
-        dairyCalorieIntake * emissionPerUnitCalorieOfDairy +
-        fruitCalorieIntake * emissionPerUnitCalorieOfFruit) / 1000;
+            grainCalorieIntake * emissionPerUnitCalorieOfGrain +
+            dairyCalorieIntake * emissionPerUnitCalorieOfDairy +
+            fruitCalorieIntake * emissionPerUnitCalorieOfFruit) / 1000;
   }
 
   // Get total carbon footprint according to daily activities
-  double getTotalCarbonFootPrint(
+  static double getTotalCarbonFootPrint(
     // Household
     double hoursFanUsed,
     double hoursTVUsed,
@@ -105,7 +103,7 @@ class CarbonFootPrdouble {
     double dairyCalorieIntake,
     double fruitCalorieIntake,
   ) {
-    return (getDailyHouseHoldCarbonFootPrdouble(
+    return (getDailyHouseHoldCarbonFootPrint(
             hoursFanUsed, hoursTVUsed, hoursFridgeUsed, litresOfWaterUsed) +
         getDailyTravelFootPrint(distanceTravelledByBike, distanceTravelledByCar,
             distanceTravelledByBicycle) +

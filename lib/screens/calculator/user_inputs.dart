@@ -1,3 +1,4 @@
+import 'package:C1O2/helpers/helpers.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -123,13 +124,29 @@ class _UserInputsState extends State<UserInputs> {
                                             _answerController is String) {
                                           return;
                                         }
-                                        answers.add(_answerController.text);
+                                        answers.add(double.parse(
+                                            _answerController.text));
                                         if (index == questions.length - 1) {
-                                          Navigator.of(context)
-                                              .pushReplacementNamed(
-                                            ResultScreen.routeName,
-                                            arguments: answers,
-                                          );
+                                          print(answers);
+
+                                          double footprint = CarbonFootPrint
+                                              .getDailyFoodCarbonFootPrint(
+                                                  answers[0],
+                                                  answers[1],
+                                                  answers[2],
+                                                  answers[3]);
+
+                                          Navigator.pushReplacement(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      ResultScreen(
+                                                        userEmission: footprint,
+                                                        averageEmission:
+                                                            CarbonFootPrint
+                                                                .avgEmissionDueToFoodPerDay,
+                                                        activityName: "Food",
+                                                      )));
                                         } else {
                                           index++;
                                         }
@@ -236,13 +253,31 @@ class _UserInputsState extends State<UserInputs> {
                                                 _answerController is String) {
                                               return;
                                             }
-                                            answers.add(_answerController.text);
+                                            answers.add(double.parse(
+                                                _answerController.text));
+
                                             if (index == questions.length - 1) {
-                                              Navigator.of(context)
-                                                  .pushReplacementNamed(
-                                                ResultScreen.routeName,
-                                                arguments: answers,
-                                              );
+                                              print(answers);
+
+                                              double footprint = CarbonFootPrint
+                                                  .getDailyTravelFootPrint(
+                                                      answers[0],
+                                                      answers[1],
+                                                      answers[2]);
+
+                                              Navigator.pushReplacement(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          ResultScreen(
+                                                            userEmission:
+                                                                footprint,
+                                                            averageEmission:
+                                                                CarbonFootPrint
+                                                                    .avgEmissionDueToTravelPerDay,
+                                                            activityName:
+                                                                "Travel",
+                                                          )));
                                             } else {
                                               index++;
                                             }
@@ -328,7 +363,6 @@ class _UserInputsState extends State<UserInputs> {
                                     child: TextFormField(
                                       controller: _answerController,
                                       decoration: InputDecoration(
-                                        
                                         hintText: index == 3 ? '' : '(In Hrs)',
                                         hintStyle: TextStyle(
                                             color: ColorPallete.color4),
@@ -345,12 +379,30 @@ class _UserInputsState extends State<UserInputs> {
                                                 _answerController is String) {
                                               return;
                                             }
-                                            answers.add(_answerController.text);
+                                            answers.add(double.parse(
+                                                _answerController.text));
+
                                             if (index == questions.length - 1) {
-                                              Navigator.of(context)
-                                                  .pushReplacementNamed(
-                                                ResultScreen.routeName,
-                                                arguments: answers,
+                                              print(answers);
+
+                                              double footprint = CarbonFootPrint
+                                                  .getDailyHouseHoldCarbonFootPrint(
+                                                      answers[0],
+                                                      answers[1],
+                                                      answers[2],
+                                                      answers[3]);
+
+                                              Navigator.pushReplacement(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      ResultScreen(
+                                                    userEmission: footprint,
+                                                    averageEmission: CarbonFootPrint
+                                                        .avgEmissionDueToHouseHoldPerDay,
+                                                    activityName: "HouseHold",
+                                                  ),
+                                                ),
                                               );
                                             } else {
                                               index++;
