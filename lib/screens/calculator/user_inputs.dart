@@ -32,7 +32,7 @@ class _UserInputsState extends State<UserInputs> {
 
     List questions = [];
 
-    print(args);
+    // print(args);
 
     if (args == 'food') {
       questions = foodQ;
@@ -127,7 +127,7 @@ class _UserInputsState extends State<UserInputs> {
                                         answers.add(double.parse(
                                             _answerController.text));
                                         if (index == questions.length - 1) {
-                                          print(answers);
+                                          // print(answers);
 
                                           double footprint = CarbonFootPrint
                                               .getDailyFoodCarbonFootPrint(
@@ -257,7 +257,7 @@ class _UserInputsState extends State<UserInputs> {
                                                 _answerController.text));
 
                                             if (index == questions.length - 1) {
-                                              print(answers);
+                                              // print(answers);
 
                                               double footprint = CarbonFootPrint
                                                   .getDailyTravelFootPrint(
@@ -383,7 +383,7 @@ class _UserInputsState extends State<UserInputs> {
                                                 _answerController.text));
 
                                             if (index == questions.length - 1) {
-                                              print(answers);
+                                              // print(answers);
 
                                               double footprint = CarbonFootPrint
                                                   .getDailyHouseHoldCarbonFootPrint(
