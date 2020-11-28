@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         title: 'C1O2',
         theme: ThemeData(
           fontFamily: "Orbitron",
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.indigo,
           cursorColor: ColorPallete.color3,
           inputDecorationTheme: InputDecorationTheme(
             focusedBorder: UnderlineInputBorder(
