@@ -6,6 +6,9 @@
 
 A futuristic app which calculates your carbon footprint due to Travel, Food and Household activities. Gives you tips to reduce your carbon footprints.
 
+# Download
+Download the [app](https://github.com/suvansh-rana/C1O2/releases/tag/1.0).
+
 # App Preview
 
 
